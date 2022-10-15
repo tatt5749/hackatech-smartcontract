@@ -19,6 +19,10 @@ contract HackInterestToken is ERC20, ERC20Burnable, AccessControl, IHackInterest
         _grantRole(INTEREST_MINTER_ROLE, msg.sender);
     }
 
+    function decimals() public pure  override returns (uint8) {
+		return 8;
+	}
+
     function totalMinted() public view virtual returns (uint256) {
         return _totalMinted;
     }

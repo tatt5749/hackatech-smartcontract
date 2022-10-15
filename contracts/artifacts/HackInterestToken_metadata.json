@@ -306,7 +306,7 @@
 						"type": "uint8"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -800,11 +800,11 @@
 			]
 		},
 		"contracts/HackInterestToken.sol": {
-			"keccak256": "0xf251dca65f0d3affdbf5da537a717377f2c674afe0b87c6c1d069e459b161784",
+			"keccak256": "0x91ba87eac207844e1542237805f25d76d3d74ddde14c097465a79243138b4259",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://475bc920ab0dae45c39b259e9d1ef1b7f156fd737d411ede599c5d8b41d0f989",
-				"dweb:/ipfs/QmcSVqALZuBheB15ZbDqg8TBsBDgXv5qoi5nZGETWbG9zU"
+				"bzz-raw://8b04ebe2122dea94bbeaf65de23bfbe1cb0b94bc58d1d616a6fbf09503363900",
+				"dweb:/ipfs/QmaNCpWcaRuSY5EpZc5nt1TsdV49yT3xCmgChnWRJ9aZP5"
 			]
 		},
 		"contracts/IHackInterestToken.sol": {
