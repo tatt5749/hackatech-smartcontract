@@ -1,0 +1,549 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_HackToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_HackInterestToken",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "RedeemInterest",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Unstake",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "day",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdateDateTest",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "HackInterestToken",
+				"outputs": [
+					{
+						"internalType": "contract IHackInterestToken",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "HackToken",
+				"outputs": [
+					{
+						"internalType": "contract IHackToken",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PRECISION_FACTOR",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "buybackRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getRedeemableAmount",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "buybackAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "interestAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "redeemableAmount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct TokenStaking.RedeemInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "getStakeCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "getTotalRedeemableAmount",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "buybackAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "interestAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "redeemableAmount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct TokenStaking.RedeemInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "interestRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "redeemInterest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stakeLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stakeMapping",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "dateStaked",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "initialAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balanceAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "redeemedAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "buybackAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalAmountStaked",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "stakeId",
+						"type": "uint256"
+					}
+				],
+				"name": "unstake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "day",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "updateDateTest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userMapping",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "totalInitialAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalBalanceAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalRedeemedAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalBuybackAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalInterestAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"params": {
+						"_HackInterestToken": "token address",
+						"_HackToken": "token address"
+					}
+				},
+				"deposit(uint256)": {
+					"params": {
+						"amount": "amount to deposit (in HACK)"
+					}
+				}
+			},
+			"title": "TokenStaking",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"constructor": {
+					"notice": "Constructor"
+				},
+				"deposit(uint256)": {
+					"notice": "Deposit staked tokens and earn interest"
+				},
+				"unstake(uint256)": {
+					"notice": "Withdraw all staked tokens and collect tokens"
+				}
+			},
+			"notice": "It handles the staking of Hack token.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/TokenStaking.sol": "TokenStaking"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts@4.7.0/security/ReentrancyGuard.sol": {
+			"keccak256": "0x0e9621f60b2faabe65549f7ed0f24e8853a45c1b7990d47e8160e523683f3935",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://287a2f8d5814dd0f05f22b740f18ca8321acc21c9bd03a6cb2203ea626e2f3f2",
+				"dweb:/ipfs/QmZRQv9iuwU817VuqkA2WweiaibKii69x9QxYBBEfbNEud"
+			]
+		},
+		"@openzeppelin/contracts@4.7.0/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"@openzeppelin/contracts@4.7.0/token/ERC20/extensions/draft-IERC20Permit.sol": {
+			"keccak256": "0xf41ca991f30855bf80ffd11e9347856a517b977f0a6c2d52e6421a99b7840329",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b2717fd2bdac99daa960a6de500754ea1b932093c946388c381da48658234b95",
+				"dweb:/ipfs/QmP6QVMn6UeA3ByahyJbYQr5M6coHKBKsf3ySZSfbyA8R7"
+			]
+		},
+		"@openzeppelin/contracts@4.7.0/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0x032807210d1d7d218963d7355d62e021a84bf1b3339f4f50be2f63b53cccaf29",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://11756f42121f6541a35a8339ea899ee7514cfaa2e6d740625fcc844419296aa6",
+				"dweb:/ipfs/QmekMuk6BY4DAjzeXr4MSbKdgoqqsZnA8JPtuyWc6CwXHf"
+			]
+		},
+		"@openzeppelin/contracts@4.7.0/utils/Address.sol": {
+			"keccak256": "0xd6153ce99bcdcce22b124f755e72553295be6abcd63804cfdffceb188b8bef10",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://35c47bece3c03caaa07fab37dd2bb3413bfbca20db7bd9895024390e0a469487",
+				"dweb:/ipfs/QmPGWT2x3QHcKxqe6gRmAkdakhbaRgx3DLzcakHz5M4eXG"
+			]
+		},
+		"contracts/IHackInterestToken.sol": {
+			"keccak256": "0x984c7ad336d080c7c8c08828fe57a719780e4f71779f745f43d9bd85b61df72b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c6fa10127a5aaac2a89fd629ddffb10ccf454ded2719010b6ae319d37e4e180d",
+				"dweb:/ipfs/QmSebzstWBP9kpcJJEHMPPVEcjT9hbHx5eHxKMY7Sf5hoq"
+			]
+		},
+		"contracts/IHackToken.sol": {
+			"keccak256": "0xa35d11c219986652e7d92386e311deb8593dbd4ce9346bd93de47cce929de5de",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4e566af1a476ba05be7aa21e151e83e4a72812e6fe517afcecbac66c5f25eac4",
+				"dweb:/ipfs/QmeD4o7AxD98LFB3wtGu31gm8778DjAbwYd6ei2iSf1K8D"
+			]
+		},
+		"contracts/TokenStaking.sol": {
+			"keccak256": "0xcbdf41bcabe347e848c7b0067ef7d6d2049c517bfc188d20fe0387a668cb738f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4eaeaf2778cdae26ef58c91356d9661d78be8fcf3f298b137ff5493fa33ea902",
+				"dweb:/ipfs/QmbbegoFH358A2pht4LQsmg6Wbo19skrVkHdao6MTF2idH"
+			]
+		}
+	},
+	"version": 1
+}
